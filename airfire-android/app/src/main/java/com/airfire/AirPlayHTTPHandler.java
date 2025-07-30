@@ -89,26 +89,26 @@ public class AirPlayHTTPHandler {
         statusCallback.onStatusUpdate("🍎 Providing server info to iOS device");
         
         String response = 
-            "HTTP/1.1 200 OK\\r\\n" +
-            "Date: " + new java.util.Date() + "\\r\\n" +
-            "Content-Type: text/x-apple-plist+xml\\r\\n" +
-            "Content-Length: 500\\r\\n" +
-            "\\r\\n" +
-            "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>\\n" +
-            "<!DOCTYPE plist PUBLIC \\"-//Apple//DTD PLIST 1.0//EN\\" \\"http://www.apple.com/DTDs/PropertyList-1.0.dtd\\">\\n" +
-            "<plist version=\\"1.0\\">\\n" +
-            "<dict>\\n" +
-            "    <key>deviceid</key>\\n" +
-            "    <string>AA:BB:CC:DD:EE:FF</string>\\n" +
-            "    <key>features</key>\\n" +
-            "    <integer>0x445F8A00</integer>\\n" +
-            "    <key>model</key>\\n" +
-            "    <string>AirFire1,1</string>\\n" +
-            "    <key>protovers</key>\\n" +
-            "    <string>1.0</string>\\n" +
-            "    <key>srcvers</key>\\n" +
-            "    <string>366.0</string>\\n" +
-            "</dict>\\n" +
+            "HTTP/1.1 200 OK\r\n" +
+            "Date: " + new java.util.Date() + "\r\n" +
+            "Content-Type: text/x-apple-plist+xml\r\n" +
+            "Content-Length: 500\r\n" +
+            "\r\n" +
+            "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+            "<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n" +
+            "<plist version=\"1.0\">\n" +
+            "<dict>\n" +
+            "    <key>deviceid</key>\n" +
+            "    <string>AA:BB:CC:DD:EE:FF</string>\n" +
+            "    <key>features</key>\n" +
+            "    <integer>0x445F8A00</integer>\n" +
+            "    <key>model</key>\n" +
+            "    <string>AirFire1,1</string>\n" +
+            "    <key>protovers</key>\n" +
+            "    <string>1.0</string>\n" +
+            "    <key>srcvers</key>\n" +
+            "    <string>366.0</string>\n" +
+            "</dict>\n" +
             "</plist>";
         
         outputStream.write(response.getBytes());
@@ -136,7 +136,7 @@ public class AirPlayHTTPHandler {
         }
         
         // Send OK response
-        String response = "HTTP/1.1 200 OK\\r\\n\\r\\n";
+        String response = "HTTP/1.1 200 OK\r\n\r\n";
         outputStream.write(response.getBytes());
         outputStream.flush();
     }
@@ -144,7 +144,7 @@ public class AirPlayHTTPHandler {
     private void handleScrub() throws IOException {
         statusCallback.onStatusUpdate("🍎 AirPlay scrub request");
         
-        String response = "HTTP/1.1 200 OK\\r\\n\\r\\n";
+        String response = "HTTP/1.1 200 OK\r\n\r\n";
         outputStream.write(response.getBytes());
         outputStream.flush();
     }
@@ -152,7 +152,7 @@ public class AirPlayHTTPHandler {
     private void handleStop() throws IOException {
         statusCallback.onStatusUpdate("🍎 AirPlay stream stopped");
         
-        String response = "HTTP/1.1 200 OK\\r\\n\\r\\n";
+        String response = "HTTP/1.1 200 OK\r\n\r\n";
         outputStream.write(response.getBytes());
         outputStream.flush();
     }
@@ -160,7 +160,7 @@ public class AirPlayHTTPHandler {
     private void handlePhoto(Map<String, String> headers) throws IOException {
         statusCallback.onStatusUpdate("🍎 AirPlay photo received");
         
-        String response = "HTTP/1.1 200 OK\\r\\n\\r\\n";
+        String response = "HTTP/1.1 200 OK\r\n\r\n";
         outputStream.write(response.getBytes());
         outputStream.flush();
     }
@@ -168,7 +168,7 @@ public class AirPlayHTTPHandler {
     private void handleNotFound() throws IOException {
         statusCallback.onStatusUpdate("🍎 Unknown AirPlay request");
         
-        String response = "HTTP/1.1 404 Not Found\\r\\n\\r\\n";
+        String response = "HTTP/1.1 404 Not Found\r\n\r\n";
         outputStream.write(response.getBytes());
         outputStream.flush();
     }
