@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.airfire.simple"
+        minSdk 21
+        targetSdk 34
+        versionName "1.0"
+        versionCode 1
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest_simple.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+            
+            // Include only SimpleAirFireActivity
+            java.includes = ['com/airfire/SimpleAirFireActivity.java']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}

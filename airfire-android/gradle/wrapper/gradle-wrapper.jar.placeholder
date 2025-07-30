@@ -1,0 +1,8 @@
+# Gradle wrapper JAR is missing.
+# 
+# To fix this:
+# 1. Open the project in Android Studio
+# 2. Android Studio will automatically download the missing gradle-wrapper.jar
+# 
+# OR manually download from:
+# https://services.gradle.org/distributions/gradle-8.5-bin.zip
