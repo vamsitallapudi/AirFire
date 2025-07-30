@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔥 AirFire for iPhone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JGD-5e-9Rs">
+                                <rect key="frame" x="16" y="79" width="361" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stream your iPhone screen to Fire TV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zY-4C-Qla">
+                                <rect key="frame" x="16" y="135" width="361" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQx-YY-2Bn">
+                                <rect key="frame" x="16" y="195.33333333333334" width="361" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire TV IP Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKN-4M-vFq">
+                                        <rect key="frame" x="16" y="16" width="329" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="192.168.1.21" borderStyle="roundedRect" placeholder="192.168.1.21" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tme-r5-Z0c">
+                                        <rect key="frame" x="16" y="52.333333333333343" width="329" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire TV IP: 192.168.1.21:5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCg-4H-ddt">
+                                        <rect key="frame" x="16" y="102.33333333333334" width="329" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTN-bI-fZh">
+                                        <rect key="frame" x="16" y="138.66666666666666" width="329" height="45.333333333333343"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="🔥 Start Streaming">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value">10</integer>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="startStreaming:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pqV-xW-jKJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="YKN-4M-vFq" firstAttribute="leading" secondItem="vQx-YY-2Bn" secondAttribute="leading" constant="16" id="2dh-ZT-q5d"/>
+                                    <constraint firstAttribute="trailing" secondItem="tme-r5-Z0c" secondAttribute="trailing" constant="16" id="B1J-LG-6DH"/>
+                                    <constraint firstAttribute="trailing" secondItem="JTN-bI-fZh" secondAttribute="trailing" constant="16" id="FsR-2b-Dwi"/>
+                                    <constraint firstItem="tme-r5-Z0c" firstAttribute="top" secondItem="YKN-4M-vFq" secondAttribute="bottom" constant="16" id="HZx-iT-OAY"/>
+                                    <constraint firstItem="JTN-bI-fZh" firstAttribute="leading" secondItem="vQx-YY-2Bn" secondAttribute="leading" constant="16" id="MJt-qg-6t4"/>
+                                    <constraint firstAttribute="trailing" secondItem="mCg-4H-ddt" secondAttribute="trailing" constant="16" id="PaC-RW-Nue"/>
+                                    <constraint firstItem="mCg-4H-ddt" firstAttribute="leading" secondItem="vQx-YY-2Bn" secondAttribute="leading" constant="16" id="Qru-Kj-mxB"/>
+                                    <constraint firstItem="JTN-bI-fZh" firstAttribute="top" secondItem="mCg-4H-ddt" secondAttribute="bottom" constant="16" id="YeF-D7-OwN"/>
+                                    <constraint firstAttribute="height" constant="200" id="bFV-TJ-hcI"/>
+                                    <constraint firstItem="mCg-4H-ddt" firstAttribute="top" secondItem="tme-r5-Z0c" secondAttribute="bottom" constant="16" id="lHp-Gw-dWz"/>
+                                    <constraint firstAttribute="trailing" secondItem="YKN-4M-vFq" secondAttribute="trailing" constant="16" id="mNE-rp-Rrv"/>
+                                    <constraint firstItem="tme-r5-Z0c" firstAttribute="leading" secondItem="vQx-YY-2Bn" secondAttribute="leading" constant="16" id="nFE-Z8-gfH"/>
+                                    <constraint firstItem="YKN-4M-vFq" firstAttribute="top" secondItem="vQx-YY-2Bn" secondAttribute="top" constant="16" id="sBd-0U-rNu"/>
+                                    <constraint firstAttribute="bottom" secondItem="JTN-bI-fZh" secondAttribute="bottom" constant="16" id="xtg-bS-2Rk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value">15</integer>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apj-H9-vOz">
+                                <rect key="frame" x="16" y="415.33333333333331" width="361" height="45"/>
+                                <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="⏹ Stop Streaming">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value">10</integer>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="stopStreaming:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cRj-2v-EWc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ready to connect to Fire TV" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCB-zw-jlW">
+                                <rect key="frame" x="16" y="500.33333333333331" width="361" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-qA-OxE">
+                                <rect key="frame" x="16" y="560.66666666666663" width="361" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dfk-nH-kMD">
+                                        <rect key="frame" x="16" y="16" width="329" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Make sure your Fire TV is on the same WiFi network&#10;2. Install AirFire app on your Fire TV&#10;3. Enter your Fire TV's IP address above&#10;4. Tap Start Streaming&#10;5. Allow screen recording when prompted" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeN-bt-C9v">
+                                        <rect key="frame" x="16" y="52.333333333333371" width="329" height="111.66666666666663"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="eeN-bt-C9v" secondAttribute="bottom" constant="16" id="2I4-xw-Cjy"/>
+                                    <constraint firstItem="Dfk-nH-kMD" firstAttribute="leading" secondItem="2tg-qA-OxE" secondAttribute="leading" constant="16" id="F4F-M0-pnX"/>
+                                    <constraint firstItem="eeN-bt-C9v" firstAttribute="leading" secondItem="2tg-qA-OxE" secondAttribute="leading" constant="16" id="MR2-3F-Rkm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dfk-nH-kMD" secondAttribute="trailing" constant="16" id="X1a-BH-lda"/>
+                                    <constraint firstItem="Dfk-nH-kMD" firstAttribute="top" secondItem="2tg-qA-OxE" secondAttribute="top" constant="16" id="bHh-yf-yKo"/>
+                                    <constraint firstAttribute="height" constant="180" id="f2l-UH-iKH"/>
+                                    <constraint firstItem="eeN-bt-C9v" firstAttribute="top" secondItem="Dfk-nH-kMD" secondAttribute="bottom" constant="16" id="gWm-R6-Gdj"/>
+                                    <constraint firstAttribute="trailing" secondItem="eeN-bt-C9v" secondAttribute="trailing" constant="16" id="vEm-o4-f9T"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value">15</integer>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Apj-H9-vOz" secondAttribute="trailing" constant="16" id="3MD-Yd-9L4"/>
+                            <constraint firstItem="Apj-H9-vOz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5WP-dN-h2y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hCB-zw-jlW" secondAttribute="trailing" constant="16" id="8ZI-XM-2me"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JGD-5e-9Rs" secondAttribute="trailing" constant="16" id="AFG-nv-0oF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vQx-YY-2Bn" secondAttribute="trailing" constant="16" id="DEe-2k-YZw"/>
+                            <constraint firstItem="vQx-YY-2Bn" firstAttribute="top" secondItem="8zY-4C-Qla" secondAttribute="bottom" constant="40" id="ENw-eB-0zh"/>
+                            <constraint firstItem="JGD-5e-9Rs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="H0s-bI-SdF"/>
+                            <constraint firstItem="vQx-YY-2Bn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HHZ-Y7-5tq"/>
+                            <constraint firstItem="2tg-qA-OxE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="O1G-9I-2oq"/>
+                            <constraint firstItem="JGD-5e-9Rs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="PJR-qX-qVR"/>
+                            <constraint firstItem="8zY-4C-Qla" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QOD-0g-Wki"/>
+                            <constraint firstItem="hCB-zw-jlW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="UbG-pd-Wq8"/>
+                            <constraint firstItem="2tg-qA-OxE" firstAttribute="top" secondItem="hCB-zw-jlW" secondAttribute="bottom" constant="40" id="YPv-Cc-0yU"/>
+                            <constraint firstItem="Apj-H9-vOz" firstAttribute="top" secondItem="vQx-YY-2Bn" secondAttribute="bottom" constant="20" id="ZCp-7A-Puw"/>
+                            <constraint firstItem="8zY-4C-Qla" firstAttribute="top" secondItem="JGD-5e-9Rs" secondAttribute="bottom" constant="20" id="fBD-0l-0Cz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8zY-4C-Qla" secondAttribute="trailing" constant="16" id="hMg-Ry-2eG"/>
+                            <constraint firstItem="hCB-zw-jlW" firstAttribute="top" secondItem="Apj-H9-vOz" secondAttribute="bottom" constant="40" id="rdK-Cb-YDj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2tg-qA-OxE" secondAttribute="trailing" constant="16" id="vkC-pD-RG2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fireTVIPField" destination="tme-r5-Z0c" id="hpX-p6-kQ5"/>
+                        <outlet property="fireTVIPLabel" destination="mCg-4H-ddt" id="Q8A-8q-jW6"/>
+                        <outlet property="startStreamingButton" destination="JTN-bI-fZh" id="7gi-dQ-8mg"/>
+                        <outlet property="statusLabel" destination="hCB-zw-jlW" id="6rb-Yb-E7F"/>
+                        <outlet property="stopStreamingButton" destination="Apj-H9-vOz" id="PiS-Ue-xnH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
