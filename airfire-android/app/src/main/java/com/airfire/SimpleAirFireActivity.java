@@ -14,10 +14,10 @@ import java.net.Socket;
 import java.io.IOException;
 
 /**
- * Simple AirFire test activity - Basic Fire TV receiver
- * This is a minimal version to test basic functionality
+ * Enhanced AirFire Activity with dual protocol support
+ * Supports both custom TCP protocol and AirPlay receiver
  */
-public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Callback {
+public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Callback, AirPlayReceiver.StatusCallback {
     
     private static final int AIRFIRE_PORT = 5000;
     
@@ -25,21 +25,28 @@ public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Cal
     private SurfaceHolder surfaceHolder;
     private TextView statusText;
     private TextView ipText;
+    private TextView protocolText;
+    
+    // TCP Server (original functionality)
     private ServerSocket serverSocket;
     private boolean isRunning = false;
+    
+    // AirPlay Receiver (new functionality)
+    private AirPlayReceiver airPlayReceiver;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // Create simple UI
+        // Create enhanced UI
         setupUI();
         
         // Show IP address
         showIPAddress();
         
-        // Start listening for iPhone connections
-        startServer();
+        // Start both servers
+        startTCPServer();
+        startAirPlayReceiver();
     }
     
     private void setupUI() {
@@ -48,11 +55,12 @@ public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Cal
         surfaceView = findViewById(R.id.surface_view);
         statusText = findViewById(R.id.status_text);
         ipText = findViewById(R.id.ip_text);
+        protocolText = findViewById(R.id.protocol_text); // New text view for protocol info
         
         surfaceHolder = surfaceView.getHolder();
         surfaceHolder.addCallback(this);
         
-        updateStatus("AirFire ready - Waiting for iPhone...");
+        updateStatus("🔥 AirFire ready - Dual protocol support");
     }
     
     private void showIPAddress() {
@@ -61,45 +69,52 @@ public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Cal
         
         runOnUiThread(() -> {
             if (ipText != null) {
-                ipText.setText("Fire TV IP: " + ip + ":" + AIRFIRE_PORT);
+                ipText.setText("Fire TV IP: " + ip);
+            }
+            if (protocolText != null) {
+                protocolText.setText("📱 Custom TCP: " + ip + ":5000\\n🍎 AirPlay: " + ip + ":7000");
             }
         });
     }
     
-    private void startServer() {
+    private void startTCPServer() {
         isRunning = true;
         
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(AIRFIRE_PORT);
-                updateStatus("🔥 AirFire ready on port " + AIRFIRE_PORT);
+                updateStatus("📱 TCP server ready on port " + AIRFIRE_PORT);
                 
                 while (isRunning && !isFinishing()) {
                     try {
-                        // Wait for iPhone connection
+                        // Wait for custom protocol connection
                         Socket clientSocket = serverSocket.accept();
                         
                         runOnUiThread(() -> {
-                            updateStatus("📱 iPhone connected from " + clientSocket.getRemoteSocketAddress());
-                            handleConnection(clientSocket);
+                            updateStatus("📱 Custom client connected: " + clientSocket.getRemoteSocketAddress());
+                            handleTCPConnection(clientSocket);
                         });
                         
                     } catch (IOException e) {
                         if (isRunning && !isFinishing()) {
-                            runOnUiThread(() -> updateStatus("❌ Connection error: " + e.getMessage()));
+                            runOnUiThread(() -> updateStatus("❌ TCP connection error: " + e.getMessage()));
                         }
                     }
                 }
             } catch (IOException e) {
-                runOnUiThread(() -> updateStatus("❌ Server error: " + e.getMessage()));
+                runOnUiThread(() -> updateStatus("❌ TCP server error: " + e.getMessage()));
             }
         }).start();
     }
     
-    private void handleConnection(Socket clientSocket) {
-        updateStatus("🎬 Ready to receive video stream...");
+    private void startAirPlayReceiver() {
+        airPlayReceiver = new AirPlayReceiver(this, this);
+        airPlayReceiver.start();
+    }
+    
+    private void handleTCPConnection(Socket clientSocket) {
+        updateStatus("📱 Ready to receive custom TCP stream...");
         
-        // For now, just keep the connection alive and show status
         new Thread(() -> {
             try {
                 byte[] buffer = new byte[1024];
@@ -107,16 +122,35 @@ public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Cal
                     int bytesRead = clientSocket.getInputStream().read(buffer);
                     if (bytesRead > 0) {
                         runOnUiThread(() -> 
-                            updateStatus("📡 Receiving data: " + bytesRead + " bytes")
+                            updateStatus("📱 TCP data: " + bytesRead + " bytes")
                         );
                     }
                     
-                    Thread.sleep(100); // Don't spam updates
+                    Thread.sleep(100);
                 }
             } catch (Exception e) {
-                runOnUiThread(() -> updateStatus("📱 iPhone disconnected"));
+                runOnUiThread(() -> updateStatus("📱 TCP client disconnected"));
             }
         }).start();
+    }
+    
+    // AirPlayReceiver.StatusCallback implementation
+    @Override
+    public void onStatusUpdate(String message) {
+        runOnUiThread(() -> updateStatus(message));
+    }
+    
+    @Override
+    public void onAirPlayConnection(String clientAddress) {
+        runOnUiThread(() -> updateStatus("🍎 iOS device connected via AirPlay: " + clientAddress));
+    }
+    
+    @Override
+    public void onVideoData(byte[] data) {
+        runOnUiThread(() -> updateStatus("🍎 AirPlay video data: " + data.length + " bytes"));
+        
+        // TODO: Process AirPlay video data (H.264 stream)
+        // This is where you'd decode and display the video
     }
     
     private void updateStatus(String message) {
@@ -147,12 +181,18 @@ public class SimpleAirFireActivity extends Activity implements SurfaceHolder.Cal
         
         isRunning = false;
         
+        // Stop TCP server
         if (serverSocket != null) {
             try {
                 serverSocket.close();
             } catch (IOException e) {
                 // Ignore
             }
+        }
+        
+        // Stop AirPlay receiver
+        if (airPlayReceiver != null) {
+            airPlayReceiver.stop();
         }
     }
 }

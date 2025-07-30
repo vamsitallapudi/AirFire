@@ -54,9 +54,18 @@
             android:layout_marginTop="5dp" />
 
         <TextView
+            android:id="@+id/protocol_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="📱 Use this IP in your iPhone app"
+            android:text="Starting servers..."
+            android:textColor="#AAFFAA"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📱 Custom app OR 🍎 iOS Control Center"
             android:textColor="#FFAA00"
             android:textSize="14sp"
             android:layout_marginTop="5dp" />
