@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    ndkVersion "27.0.12077973"
+
+    compileSdk 34
+
+    namespace 'com.airfire'
+
+    defaultConfig {
+        applicationId "com.airfire"
+        minSdk 21
+        targetSdk 34
+
+        versionName "1.0"
+        versionCode = 1
+
+        // Generate native debug symbols to allow Google Play to symbolicate our native crashes
+        ndk.debugSymbolLevel = 'FULL'
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    lint {
+        disable 'MissingTranslation'
+        lintConfig file('lint.xml')
+    }
+
+    bundle {
+        language {
+            // Avoid splitting by language, since we allow users
+            // to manually switch language in settings.
+            enableSplit = false
+        }
+        density {
+            // FIXME: This should not be necessary but we get
+            // weird crashes due to missing drawable resources
+            // when this split is enabled.
+            enableSplit = false
+        }
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Minimal dependencies for basic networking
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+}

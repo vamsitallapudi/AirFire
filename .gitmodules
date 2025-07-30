@@ -1,0 +1,6 @@
+[submodule "moonlight-android"]
+	path = moonlight-android
+	url = https://github.com/moonlight-stream/moonlight-android.git
+[submodule "moonlight-ios"]
+	path = moonlight-ios
+	url = https://github.com/moonlight-stream/moonlight-ios.git
